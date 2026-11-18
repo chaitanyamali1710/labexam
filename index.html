@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="A calm, simple task list that stays in your browser.">
+    <title>Daylight — your tasks, in focus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Daylight home">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>daylight</span>
+        </a>
+        <span class="saved-note"><span class="saved-dot" aria-hidden="true"></span> Saved on this device</span>
+      </header>
+
+      <section class="content" aria-labelledby="page-title">
+        <p class="eyebrow" id="today-date"></p>
+        <h1 id="page-title">Make room for<br><span>what matters.</span></h1>
+        <p class="intro">A little progress adds up. What would you like to get done?</p>
+
+        <form class="task-form" id="task-form">
+          <label class="sr-only" for="task-input">Add a task</label>
+          <input id="task-input" name="task" type="text" maxlength="160" placeholder="e.g. Take a proper lunch break" autocomplete="off" required>
+          <button type="submit"><span aria-hidden="true">+</span> Add task</button>
+        </form>
+
+        <section class="task-card" aria-label="Your task list">
+          <div class="list-header">
+            <div>
+              <h2>Your list <span class="task-count" id="task-count">0</span></h2>
+              <p class="progress-label" id="progress-label">A fresh start. You’ve got this.</p>
+            </div>
+            <button class="clear-button" id="clear-completed" type="button" hidden>Clear completed</button>
+          </div>
+
+          <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track">
+            <span id="progress-fill"></span>
+          </div>
+
+          <nav class="filters" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">To do</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+          </nav>
+
+          <ul class="task-list" id="task-list" aria-live="polite"></ul>
+          <p class="empty-state" id="empty-state">Nothing on the list just yet. Add a task to get started.</p>
+        </section>
+
+        <p class="footer-note">One thing at a time is still moving forward.</p>
+      </section>
+    </main>
+  </body>
+</html>
